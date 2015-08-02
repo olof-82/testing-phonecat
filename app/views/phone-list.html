@@ -1,0 +1,40 @@
+<!--<h4>Phone List [{{phones.length}}] order by '{{orderProp}}'</h4>-->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      Search:
+      <input ng-model="query">
+
+      Sort by:
+      <select ng-model="orderProp">
+        <option value="name">Alphabetical</option>
+        <option value="age">Newest</option>
+      </select>
+
+    </div>
+    <div class="col-md-10">
+      <ul class="phones">
+        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail phone-listing">
+          <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
+          <a href="#/phones/{{phone.id}}">{{phone.name | uppercase}}</a>
+          <p>{{phone.snippet}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--
+<pre>{{phones | filter:query | orderBy:orderProp | json}}</pre>
+-->
+<!--
+<p>Hello {{name}}</p>
+-->
+<!--
+<table>
+  <tr><th colspan="8">row number</th></tr>
+  <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]">
+    <td ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]">{{i}}</td>
+  </tr>
+</table>
+-->
